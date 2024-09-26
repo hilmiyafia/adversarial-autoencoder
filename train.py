@@ -67,4 +67,3 @@ if __name__ == "__main__":
         torch.save(model.state_dict(), "model.pt")
         torch.save(critic.state_dict(), "critic.pt")
         
-            
