@@ -16,11 +16,11 @@ DEVICE = "cuda"
 
 if __name__ == "__main__":
     critic = Critic().to(DEVICE)
-    critic.load_state_dict(torch.load("critic.pt", weights_only=False))
+    # critic.load_state_dict(torch.load("critic.pt", weights_only=False))
     critic.optimizer = torch.optim.AdamW(critic.parameters(), lr=LR)
 
     model = Autoencoder().to(DEVICE)
-    model.load_state_dict(torch.load("model.pt", weights_only=False))
+    # model.load_state_dict(torch.load("model.pt", weights_only=False))
     model.optimizer = torch.optim.AdamW(model.parameters(), lr=LR)
 
     dataset = Dataset(PATH)
