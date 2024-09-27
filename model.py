@@ -82,3 +82,4 @@ if __name__ == "__main__":
     critic = Critic()
     summary(critic, (1, 256))
 
+        
