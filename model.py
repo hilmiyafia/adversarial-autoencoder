@@ -81,5 +81,4 @@ if __name__ == "__main__":
     summary(model, (1, 3, 64, 64))
     critic = Critic()
     summary(critic, (1, 256))
-
-        
+    
