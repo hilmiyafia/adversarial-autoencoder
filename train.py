@@ -75,7 +75,7 @@ if __name__ == "__main__":
         return torch.utils.data.DataLoader(trainset, 16, shuffle=True, 
                                            num_workers=2, persistent_workers=True)
     trainloader = lightning.pytorch.utilities.CombinedLoader({
-        "autoencoder": , get_loader(), "critic": get_loader()})
+        "autoencoder": get_loader(), "critic": get_loader()})
     model = AdversarialAutoencoder(valset=valset)
     trainer = lightning.Trainer(max_epochs=1000)
     trainer.fit(model, trainloader)
