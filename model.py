@@ -8,7 +8,9 @@ class Block(torch.nn.Module):
     def __init__(self, in_count, out_count, scale=0):
         super().__init__()
         self.layers = torch.nn.Sequential(
-            torch.nn.Conv2d(in_count, in_count, 3, padding=1, padding_mode="reflect", groups=in_count),
+            torch.nn.Conv2d(
+                in_count, in_count, 3, groups=in_count,
+                padding=1, padding_mode="reflect"),
             torch.nn.InstanceNorm2d(in_count),
             torch.nn.Conv2d(in_count, 4*in_count, 1),
             torch.nn.LeakyReLU(),
