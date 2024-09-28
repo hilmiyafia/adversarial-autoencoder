@@ -8,12 +8,11 @@ from train import AdversarialAutoencoder
 
 ROWS = 4
 COLS = 4
+PATH = "lightning_logs/version_0/checkpoints/epoch=63-step=17408.ckpt"
 
 
 if __name__ == "__main__":
-    model = AdversarialAutoencoder.load_from_checkpoint("model.ckpt")
-    model.eval()
-
+    model = AdversarialAutoencoder.load_from_checkpoint(PATH).eval()
     with torch.no_grad():
         random = torch.randn(ROWS*COLS, 256)
         random = random.type_as(model.autoencoder.decoder[-1].layers[0].weight)
