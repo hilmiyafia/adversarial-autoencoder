@@ -11,7 +11,6 @@ COLS = 4
 if __name__ == "__main__":
     model = AdversarialAutoencoder.load_from_checkpoint("model.ckpt")
     model.eval()
-
     with torch.no_grad():
         random = torch.randn(ROWS*COLS, 256)
         random = random.type_as(model.autoencoder.decoder[-1].layers[0].weight)
