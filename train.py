@@ -64,7 +64,7 @@ class AdversarialAutoencoder(lightning.LightningModule):
     def on_train_epoch_end(self):
         if self.valset is None: return
         batch = self.valset.type_as(self.autoencoder.encoder[0].layers[0].weight)
-        grid = torchvision.utils.make_grid(self.autoencoder(batch, padding=0)[0])
+        grid = torchvision.utils.make_grid(self.autoencoder(batch)[0], padding=0)
         self.logger.experiment.add_image("reconstruction", grid, self.current_epoch)
 
 
